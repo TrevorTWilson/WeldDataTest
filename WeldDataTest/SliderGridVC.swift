@@ -97,19 +97,36 @@ class SliderGridViewController: UIViewController {
     
     // Handle view change to save user data
     override func viewWillDisappear(_ animated: Bool) {
-        UserDefaults.standard.set(ampsSlider.value, forKey: "ampsSliderKey")
-            // Save other values as needed
+        let passAmpkey = customTitleLabel.text! + "ampKey"
+        let passVoltkey = customTitleLabel.text! + "voltKey"
+        let passDistkey = customTitleLabel.text! + "distKey"
+        let passTimekey = customTitleLabel.text! + "timeKey"
+        UserDefaults.standard.set(ampsSlider.value, forKey: passAmpkey)
+        UserDefaults.standard.set(voltsSlider.value, forKey: passVoltkey)
+        UserDefaults.standard.set(distanceSlider.value, forKey: passDistkey)
+        UserDefaults.standard.set(timeSlider.value, forKey: passTimekey)
+        
     }
     
     // Handle view change to load user data
     override func viewWillAppear(_ animated: Bool) {
-        if let savedValue = UserDefaults.standard.value(forKey: "ampsSliderKey") as? Float {
-            debugMessage = savedValue
-            debugOutput()
-            self.ampsSlider.value = savedValue
+        let passAmpkey = customTitleLabel.text! + "ampKey"
+        let passVoltkey = customTitleLabel.text! + "voltKey"
+        let passDistkey = customTitleLabel.text! + "distKey"
+        let passTimekey = customTitleLabel.text! + "timeKey"
+        
+        // Retrieve and assign other values as needed
+        if let savedAmp = UserDefaults.standard.value(forKey: passAmpkey) as? Float {
+            self.ampsSlider.value = savedAmp}
+        if let savedVolt = UserDefaults.standard.value(forKey: passVoltkey) as? Float {
+            self.voltsSlider.value = savedVolt}
+        if let savedDist = UserDefaults.standard.value(forKey: passDistkey) as? Float {
+            self.distanceSlider.value = savedDist}
+        if let savedTime = UserDefaults.standard.value(forKey: passTimekey) as? Float {
+            self.timeSlider.value = savedTime}
             // Retrieve and assign other values as needed
         }
-    }
+    
     
     
     override func viewDidLoad() {
