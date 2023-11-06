@@ -12,6 +12,13 @@ import UIKit
 class SliderGridViewController: UIViewController {
     
     let customTitleLabel = UILabel()
+    var debugMessage: Float = 0
+    
+    func debugOutput(){
+        // Print out system values for debuggin
+        print("This is the value of debugMessage")
+        print(debugMessage)
+    }
     
     private let ampsSlider: UISlider = {
         let slider = UISlider()
@@ -33,7 +40,6 @@ class SliderGridViewController: UIViewController {
         let slider = UISlider()
         slider.minimumValue = 50
         slider.maximumValue = 350
-        slider.value = slider.minimumValue
         // Round increment to nearest 5
         slider.addTarget(self, action: #selector(distanceValueChanged), for: .valueChanged)
         return slider
@@ -89,13 +95,37 @@ class SliderGridViewController: UIViewController {
         return label
     }()
     
+    // Handle view change to save user data
+    override func viewWillDisappear(_ animated: Bool) {
+        UserDefaults.standard.set(ampsSlider.value, forKey: "ampsSliderKey")
+            // Save other values as needed
+    }
+    
+    // Handle view change to load user data
+    override func viewWillAppear(_ animated: Bool) {
+        if let savedValue = UserDefaults.standard.value(forKey: "ampsSliderKey") as? Float {
+            debugMessage = savedValue
+            debugOutput()
+            self.ampsSlider.value = savedValue
+            // Retrieve and assign other values as needed
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        // Set the Title
+        // Create event listeners for user navigating away or application entering background
+        // Save user defaults
+            // App
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationWillResignActive), name:
+                                                UIApplication.willResignActiveNotification, object: nil)
+        // Load user defaults
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name:
+                                                UIApplication.didBecomeActiveNotification, object: nil)
         
-       // customTitleLabel.text = "Your Custom Title"
+        // Set the Title
         customTitleLabel.font = UIFont.boldSystemFont(ofSize: 20) // Adjust the font and style as needed
         customTitleLabel.textColor = UIColor.black // Set the text color
         customTitleLabel.sizeToFit() // Adjust the size of the label based on its content
@@ -193,6 +223,21 @@ class SliderGridViewController: UIViewController {
         
         // Recalculate outputs
         calculateAndDisplayOutputs()
+    }
+    
+    // Save user defaults
+    @objc private func applicationWillResignActive(_ notification: Notification) {
+        UserDefaults.standard.set(ampsSlider.value, forKey: "ampsSliderKey")
+            // Save other values as needed
+        }
+    
+    // Load user defaults
+    @objc private func applicationDidBecomeActive(_ notification: Notification) {
+        if let savedValue = UserDefaults.standard.value(forKey: "ampsSliderKey") as? Float {
+            debugMessage = savedValue
+            debugOutput()
+            // Retrieve and assign other values as needed
+        }
     }
     
     private func calculateAndDisplayOutputs() {
