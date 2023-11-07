@@ -150,9 +150,9 @@ class SliderGridViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         let sliderLabelPairs: [(UISlider, UILabel)] = [
-            (ampsSlider, ampsLabel),
-            (voltsSlider, voltsLabel),
             (distanceSlider, distanceLabel),
+            (voltsSlider, voltsLabel),
+            (ampsSlider, ampsLabel),
             (timeSlider, timeLabel)
         ]
         

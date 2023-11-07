@@ -18,6 +18,7 @@
 		5B46987E2AF7D1DA00E506AE /* WeldDataTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B46987D2AF7D1DA00E506AE /* WeldDataTestUITestsLaunchTests.swift */; };
 		5B46988B2AF7DFF900E506AE /* PassMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B46988A2AF7DFF900E506AE /* PassMenu.swift */; };
 		5B46988D2AF8003000E506AE /* SliderGridVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B46988C2AF8003000E506AE /* SliderGridVC.swift */; };
+		5B4698952AFA901000E506AE /* StopWatchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4698942AFA901000E506AE /* StopWatchVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		5B46987D2AF7D1DA00E506AE /* WeldDataTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeldDataTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5B46988A2AF7DFF900E506AE /* PassMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassMenu.swift; sourceTree = "<group>"; };
 		5B46988C2AF8003000E506AE /* SliderGridVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderGridVC.swift; sourceTree = "<group>"; };
+		5B4698942AFA901000E506AE /* StopWatchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopWatchVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				5B46985E2AF7D1D800E506AE /* ViewController.swift */,
 				5B46988A2AF7DFF900E506AE /* PassMenu.swift */,
 				5B46988C2AF8003000E506AE /* SliderGridVC.swift */,
+				5B4698942AFA901000E506AE /* StopWatchVC.swift */,
 				5B4698602AF7D1D800E506AE /* Main.storyboard */,
 				5B4698632AF7D1DA00E506AE /* Assets.xcassets */,
 				5B4698652AF7D1DA00E506AE /* LaunchScreen.storyboard */,
@@ -264,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B4698952AFA901000E506AE /* StopWatchVC.swift in Sources */,
 				5B46985F2AF7D1D800E506AE /* ViewController.swift in Sources */,
 				5B46988B2AF7DFF900E506AE /* PassMenu.swift in Sources */,
 				5B46985B2AF7D1D800E506AE /* AppDelegate.swift in Sources */,
