@@ -83,14 +83,14 @@ class SliderGridViewController: UIViewController {
     
     private let output1Label: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 2
+        label.numberOfLines = 3
         label.textAlignment = .center
         return label
     }()
     
     private let output2Label: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 2
+        label.numberOfLines = 3
         label.textAlignment = .center
         return label
     }()
@@ -117,14 +117,15 @@ class SliderGridViewController: UIViewController {
         
         // Retrieve and assign other values as needed
         if let savedAmp = UserDefaults.standard.value(forKey: passAmpkey) as? Float {
-            self.ampsSlider.value = savedAmp}
+            self.ampsSlider.value = savedAmp}; self.ampsSlider.sendActions(for: .valueChanged)
         if let savedVolt = UserDefaults.standard.value(forKey: passVoltkey) as? Float {
-            self.voltsSlider.value = savedVolt}
+            self.voltsSlider.value = savedVolt}; self.voltsSlider.sendActions(for: .valueChanged)
         if let savedDist = UserDefaults.standard.value(forKey: passDistkey) as? Float {
-            self.distanceSlider.value = savedDist}
+            self.distanceSlider.value = savedDist}; self.distanceSlider.sendActions(for: .valueChanged)
         if let savedTime = UserDefaults.standard.value(forKey: passTimekey) as? Float {
-            self.timeSlider.value = savedTime}
-            // Retrieve and assign other values as needed
+            self.timeSlider.value = savedTime}; self.timeSlider.sendActions(for: .valueChanged)
+            // Send action triggers to all sliders
+        
         }
     
     
@@ -194,6 +195,8 @@ class SliderGridViewController: UIViewController {
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             stackView.widthAnchor.constraint(equalToConstant: 250)
         ])
+        
+        calculateAndDisplayOutputs()
     }
     
     // Slider value changed handlers
@@ -264,10 +267,10 @@ class SliderGridViewController: UIViewController {
         let time = timeSlider.value
         
         let output1 = String(format: "%.2f", (((amps * volts) * time) / distance) / 1000)
-        output1Label.text = "Output1: \n \(output1)"
+        output1Label.text = "Heat Input \n \(output1) \n Kj/mm"
         
         let output2 = String(format: "%.0f", (distance / time) * 60)
-        output2Label.text = "Output2: \n \(output2)"
+        output2Label.text = "Arc Speed \n \(output2) \n mm/min"
     }
     
     
