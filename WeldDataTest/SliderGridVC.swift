@@ -12,14 +12,8 @@ import UIKit
 class SliderGridViewController: UIViewController {
     
     let customTitleLabel = UILabel()
-    var debugMessage: Float = 0
     
-    func debugOutput(){
-        // Print out system values for debuggin
-        print("This is the value of debugMessage")
-        print(debugMessage)
-    }
-    
+    // Create instances of required UISliders
     private lazy var ampsSlider: UISlider = {
         let slider = UISlider()
         slider.minimumValue = 50
@@ -257,8 +251,6 @@ class SliderGridViewController: UIViewController {
     // Load user defaults
     @objc private func applicationDidBecomeActive(_ notification: Notification) {
         if let savedValue = UserDefaults.standard.value(forKey: "ampsSliderKey") as? Float {
-            debugMessage = savedValue
-            debugOutput()
             // Retrieve and assign other values as needed
         }
     }
