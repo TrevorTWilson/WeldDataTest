@@ -22,19 +22,9 @@ class PassMenu: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        segue.destination.title = lastSelectedTitle
-//    }
-    
+        // Prepare appropriate Title for instance of SliderGridVC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // Title if Root
-//        if segue.identifier == "RootPassSegue" {
-//               // Access destination view controller
-//               if let destinationVC = segue.destination as? SliderGridViewController {
-//                   // Set the page title property of the destination view controller
-//                   destinationVC.customTitleLabel.text = "Root"
-//               }
-//           }
+        
         switch segue.identifier{
         case "RootPassSegue":
             if let destinationVC = segue.destination as? SliderGridViewController {
@@ -69,21 +59,19 @@ class PassMenu: UITableViewController {
         switch indexPath.row {
         case 0:
             performSegue(withIdentifier: "RootPassSegue", sender: self)
-//        case 1:
-//            performSegue(withIdentifier: "MarkersLabelsSegue", sender: self)
-//        case 2:
-//            performSegue(withIdentifier: "DoubleHandleSegue", sender: self)
-//        case 3:
-//            performSegue(withIdentifier: "GradientColorsSegue", sender: self)
-//        case 4:
-//            performSegue(withIdentifier: "StopWatchSegue", sender: self)
-//        case 5:
-//            performSegue(withIdentifier: "RootPassSegue", sender: self)
+        case 1:
+            performSegue(withIdentifier: "HotPassSegue", sender: self)
+        case 2:
+            performSegue(withIdentifier: "Fill1Segue", sender: self)
+        case 3:
+            performSegue(withIdentifier: "Fill2Segue", sender: self)
+        case 4:
+            performSegue(withIdentifier: "CapSegue", sender: self)
         default:
             break
         }
         
-        tableView.deselectRow(at: indexPath, animated: true)
+        //tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }

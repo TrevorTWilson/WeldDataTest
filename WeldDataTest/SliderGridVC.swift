@@ -20,7 +20,7 @@ class SliderGridViewController: UIViewController {
         print(debugMessage)
     }
     
-    private let ampsSlider: UISlider = {
+    private lazy var ampsSlider: UISlider = {
         let slider = UISlider()
         slider.minimumValue = 50
         slider.maximumValue = 350
@@ -28,7 +28,7 @@ class SliderGridViewController: UIViewController {
         return slider
     }()
     
-    private let voltsSlider: UISlider = {
+    private lazy var voltsSlider: UISlider = {
         let slider = UISlider()
         slider.minimumValue = 12
         slider.maximumValue = 37
@@ -36,7 +36,7 @@ class SliderGridViewController: UIViewController {
         return slider
     }()
     
-    private let distanceSlider: UISlider = {
+    private lazy var distanceSlider: UISlider = {
         let slider = UISlider()
         slider.minimumValue = 50
         slider.maximumValue = 350
@@ -45,7 +45,7 @@ class SliderGridViewController: UIViewController {
         return slider
     }()
     
-    private let timeSlider: UISlider = {
+    private lazy var timeSlider: UISlider = {
         let slider = UISlider()
         slider.minimumValue = 0
         slider.maximumValue = 150
@@ -202,6 +202,7 @@ class SliderGridViewController: UIViewController {
     // Slider value changed handlers
     
     @objc private func ampsSliderValueChanged(sender: UISlider) {
+        
         let increment: Float = 1 // Volt Increment Value
         let roundedValue = round(sender.value / increment) * increment
         sender.value = roundedValue
@@ -210,7 +211,9 @@ class SliderGridViewController: UIViewController {
         
         // Recalculate outputs
         calculateAndDisplayOutputs()
+        
     }
+        
     
     @objc private func voltsSliderValueChanged(sender: UISlider) {
         let increment: Float = 0.5 // Volt Increment Value

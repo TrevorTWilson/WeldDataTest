@@ -26,7 +26,6 @@
         <!--Root View Controller-->
         <scene sceneID="YTU-YZ-haz">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RqU-nj-Waf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController id="pSa-wb-Man" customClass="PassMenu" customModule="WeldDataTest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Kkn-oq-F2t">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
@@ -132,7 +131,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="BX3-PL-qxl" kind="show" identifier="CapSegue" id="JaM-6Y-Zgm"/>
+                                            <segue destination="BX3-PL-qxl" kind="show" identifier="CapSegue" id="mGh-0D-irB"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -145,6 +144,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="acL-Uy-tGJ"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RqU-nj-Waf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-15" y="-101"/>
         </scene>
@@ -160,7 +160,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lE2-dg-Ni4"/>
+        <segue reference="mGh-0D-irB"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
