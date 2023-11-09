@@ -1,9 +1,8 @@
 //
 //  StopWatchVC.swift
-//  MSCircularSliderExample
+//  WeldDataTest
 //
-//  Created by trevor wilson on 2023-11-04.
-//  Copyright © 2023 Mohamed Shahawy. All rights reserved.
+//  Created by trevor wilson on 2023-11-05.
 //
 
 
@@ -15,7 +14,7 @@ class RoundStopwatchView: UIView {
     private var startTime: Date?
     private var elapsedTime: TimeInterval = 0.0
     
-    private let startStopButton: UIButton = {
+    private lazy var startStopButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Start", for: .normal)
         button.setTitleColor(.green, for: .normal)
@@ -23,7 +22,7 @@ class RoundStopwatchView: UIView {
         return button
     }()
     
-    private let resetButton: UIButton = {
+    private lazy var resetButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Reset", for: .normal)
         button.setTitleColor(.blue, for: .normal)
