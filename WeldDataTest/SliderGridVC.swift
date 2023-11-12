@@ -89,6 +89,7 @@ class SliderGridViewController: UIViewController {
         return label
     }()
     
+    
     // Handle view change to save user data
     override func viewWillDisappear(_ animated: Bool) {
         let passAmpkey = customTitleLabel.text! + "ampKey"
@@ -149,6 +150,13 @@ class SliderGridViewController: UIViewController {
         stackView.spacing = 20
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
+        let outputsStackView = UIStackView(arrangedSubviews: [output1Label, output2Label])
+        outputsStackView.axis = .horizontal
+        outputsStackView.alignment = .center
+        outputsStackView.spacing = 20
+        
+        stackView.addArrangedSubview(outputsStackView)
+        
         let sliderLabelPairs: [(UISlider, UILabel)] = [
             (distanceSlider, distanceLabel),
             (voltsSlider, voltsLabel),
@@ -174,21 +182,20 @@ class SliderGridViewController: UIViewController {
                 slider.heightAnchor.constraint(equalToConstant: 30)
             ])
         }
-        
-        let outputsStackView = UIStackView(arrangedSubviews: [output1Label, output2Label])
-        outputsStackView.axis = .horizontal
-        outputsStackView.alignment = .center
-        outputsStackView.spacing = 20
-        
-        stackView.addArrangedSubview(outputsStackView)
-        
+
         view.addSubview(stackView)
         
         NSLayoutConstraint.activate([
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100),
             stackView.widthAnchor.constraint(equalToConstant: 250)
         ])
+        
+        // Atempt to add a UIView to contain a stopWatch Class item
+        let customStopWatchview = RoundStopwatchView(frame: CGRect(x: (self.view.frame.size.width / 2)-75, y:500, width: 150, height: 150))
+        customStopWatchview.backgroundColor = UIColor.white
+        view.addSubview(customStopWatchview)
+        
         
         calculateAndDisplayOutputs()
     }
@@ -267,6 +274,7 @@ class SliderGridViewController: UIViewController {
         let output2 = String(format: "%.0f", (distance / time) * 60)
         output2Label.text = "Arc Speed \n \(output2) \n mm/min"
     }
+    
     
     
 }
